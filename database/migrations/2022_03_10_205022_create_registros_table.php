@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tipo_unidad_id');
-            $table->integer('operaciones');
+            $table->integer('operaciones')->default(0);
+            $table->integer('operaciones_tranf')->default(0);
+            $table->integer('operaciones_tiendv')->default(0);
             $table->double('post')->default(0);
             $table->double('enzona')->default(0);
             $table->double('transfer_movil')->default(0);

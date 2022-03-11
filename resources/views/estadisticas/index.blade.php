@@ -207,12 +207,22 @@
                 }]
             };
 
-            $('#totalGrafico').html(currency(r.totalVentas));
-            $('#totalOperacionesGrafico').html(r.totalOperaciones);
+            $('#totalGrafico').html(currency(
+                r.totalesVirtuales.enzona +
+                r.totalesVirtuales.transfermovil +
+                r.totalesVirtuales.tiendavirtual +
+                r.totalesVirtuales.posts
+            ));
 
-            $('#totalEnzona').html(currency(r.totalesVirtuales.enzona));
-            $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil));
-            $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual));
+            $('#totalOperacionesGrafico').html(
+                r.totalesOperaciones.enzona +
+                r.totalesOperaciones.transfermovil +
+                r.totalesOperaciones.tiendavirtual
+            );
+
+            $('#totalEnzona').html(currency(r.totalesVirtuales.enzona) + '/ Op:'+ $totalesOperaciones.enzona);
+            $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil) + '/ Op:'+ $totalesOperaciones.transfermovil);
+            $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual) + '/ Op:'+ $totalesOperaciones.tiendavirtual);
             $('#totalPost').html(currency(r.totalesVirtuales.posts));
 
             myChart.data = data;

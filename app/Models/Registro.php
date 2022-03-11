@@ -9,7 +9,9 @@ class Registro extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tipo_unidad_id', 'operaciones', 'year', 'mes', 'post', 'enzona', 'transfer_movil', 'tienda_virtual'];
+    protected $fillable = [
+        'tipo_unidad_id', 'operaciones','operaciones_tranf','operaciones_tiendv', 'year', 'mes', 'post', 'enzona', 'transfer_movil', 'tienda_virtual'
+    ];
 
     public function getTipoUnidad()
     {
