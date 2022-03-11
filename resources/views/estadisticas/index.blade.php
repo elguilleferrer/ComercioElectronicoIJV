@@ -15,8 +15,7 @@
             </div>
             <div class="col">
                 <label for="year">Año</label>
-                <
-                select name="year" id="yearF" class="form-control" required>
+                <select name="year" id="yearF" class="form-control" required>
                     @for($i=2021;$i<=2060;$i++)
                         <option value="{{$i}}" @if($i == \Carbon\Carbon::now()->format('Y')) selected @endif>{{$i}}</option>
                     @endfor
