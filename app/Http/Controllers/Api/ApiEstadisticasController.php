@@ -84,7 +84,8 @@ class ApiEstadisticasController extends Controller
             'posts',
             'tiendavirtual',
             'labels',
-            'totalesVirtuales'
+            'totalesVirtuales',
+            'totalesOperaciones'
         );
     }
 
