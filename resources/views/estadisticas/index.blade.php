@@ -195,16 +195,38 @@
 
             data1 = {
                 labels: r.labels,
-                datasets: [{
-                    label: 'Operaciones acumulado',
-                    data: r.operaciones,
-                    borderWidth: 1,
-                    backgroundColor : '#0ccbbb',
-                    barThickness: 15,
-                    maxBarThickness: 15,
-                    minBarLength: 15,
-                    borderRadius: 5,
-                }]
+                datasets: [
+                    {
+                        label: 'Enzona',
+                        data: r.totalesOperaciones.enzona,
+                        borderWidth: 1,
+                        backgroundColor : '#0ccbbb',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                    },
+                    {
+                        label: 'Transfermovil',
+                        data: r.totalesOperaciones.transfermovil,
+                        borderWidth: 1,
+                        backgroundColor : '#0ccbbb',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                    },
+                    {
+                        label: 'Tienda Virtual',
+                        data: r.totalesOperaciones.tiendavirtual,
+                        borderWidth: 1,
+                        backgroundColor : '#0ccbbb',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                    },
+                ]
             };
 
             $('#totalGrafico').html(currency(
@@ -279,16 +301,38 @@
 
                 data1 = {
                     labels: r.labels,
-                    datasets: [{
-                        label: 'Operaciones acumulado',
-                        data: r.operaciones,
-                        borderWidth: 1,
-                        backgroundColor : '#0ccbbb',
-                        barThickness: 15,
-                        maxBarThickness: 15,
-                        minBarLength: 15,
-                        borderRadius: 5,
-                    }]
+                    datasets: [
+                        {
+                            label: 'Enzona',
+                            data: r.totalesOperaciones.enzona,
+                            borderWidth: 1,
+                            backgroundColor : '#0ccbbb',
+                            barThickness: 15,
+                            maxBarThickness: 15,
+                            minBarLength: 15,
+                            borderRadius: 5,
+                        },
+                        {
+                            label: 'Transfermovil',
+                            data: r.totalesOperaciones.transfermovil,
+                            borderWidth: 1,
+                            backgroundColor : '#0ccbbb',
+                            barThickness: 15,
+                            maxBarThickness: 15,
+                            minBarLength: 15,
+                            borderRadius: 5,
+                        },
+                        {
+                            label: 'Tienda Virtual',
+                            data: r.totalesOperaciones.tiendavirtual,
+                            borderWidth: 1,
+                            backgroundColor : '#0ccbbb',
+                            barThickness: 15,
+                            maxBarThickness: 15,
+                            minBarLength: 15,
+                            borderRadius: 5,
+                        },
+                    ]
                 };
                 $('#totalGrafico').html(currency(
                     r.totalesVirtuales.enzona + r.totalesVirtuales.transfermovil + r.totalesVirtuales.tiendavirtual + r.totalesVirtuales.posts
