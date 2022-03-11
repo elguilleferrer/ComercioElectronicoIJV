@@ -44,6 +44,7 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('estadisticas_api')->group(function () {
     Route::get('informacion_general',[ApiEstadisticasController::class,'informacionGeneral']);
+    Route::get('filtro/{mes}/{year}',[ApiEstadisticasController::class,'informacionFiltro']);
 });
 
 Route::get('acerca',function(){

@@ -4,9 +4,26 @@
     <div class="container">
         <h4>Estadísticas</h4>
         <h6 class="text-black-50">Detalles de las estadisticas</h6>
+        <div class="row mb-2">
+            <div class="col">
+                <label for="mes">Mes</label>
+                <select name="mes" id="mesF" class="form-control" required>
+                    @foreach($meses as $mes)
+                        <option value="{{$mes->id}}" @if($mes->id == \Carbon\Carbon::now()->format('m')) selected @endif>{{$mes->label}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col">
+                <label for="year">Año</label>
+                <select name="year" id="yearF" class="form-control" required>
+                    @for($i=2021;$i<=2060;$i++)
+                        <option value="{{$i}}" @if($i == \Carbon\Carbon::now()->format('Y')) selected @endif>{{$i}}</option>
+                    @endfor
+                </select>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
-                <h3>Acumulado General</h3>
                 <div class="row">
                     <div class="col-sm-6">
                         <canvas id="myChart" style="width: 100%;max-height: 600px;"></canvas>
@@ -73,11 +90,42 @@
 @section('scripts')
     <script src="{{asset('js/chart.min.js')}}"></script>
     <script>
-        $.get('estadisticas_api/informacion_general').then( r => {
-            const ctx = document.getElementById('myChart').getContext('2d');
-            const ctx1 = document.getElementById('myChart1').getContext('2d');
 
-            const data = {
+        var data = {},
+            data1 = {};
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const ctx1 = document.getElementById('myChart1').getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data : data,
+            responsive: true,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const myChart1 = new Chart(ctx1, {
+            type: 'bar',
+            data : data1,
+            responsive: true,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        });
+
+        $.get('{{url('estadisticas_api/filtro/'.\Carbon\Carbon::now()->format('m').'/'.\Carbon\Carbon::now()->format('Y'))}}').then( r => {
+
+            data = {
                 labels: r.labels,
                 datasets: [{
                     label: 'Monto acumulado',
@@ -92,7 +140,7 @@
                 }]
             };
 
-            const data1 = {
+            data1 = {
                 labels: r.labels,
                 datasets: [{
                     label: 'Operaciones acumulado',
@@ -107,30 +155,61 @@
                 }]
             };
 
-            const myChart = new Chart(ctx, {
-                type: 'bar',
-                data : data,
-                responsive: true,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
+            myChart.data = data;
+            myChart1.data = data1;
+
+            myChart.update();
+            myChart1.update();
+
+        });
+
+        function obtenerEstadistica(mes,year){
+            $.get('{{url('estadisticas_api/filtro')}}/'+mes+'/'+year).then( r => {
+
+                data = {
+                    labels: r.labels,
+                    datasets: [{
+                        label: 'Monto acumulado',
+                        data: r.montos,
+                        borderWidth: 1,
+                        backgroundColor : '#0c88cb',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                        borderSkipped: true
+                    }]
+                };
+
+                data1 = {
+                    labels: r.labels,
+                    datasets: [{
+                        label: 'Operaciones acumulado',
+                        data: r.operaciones,
+                        borderWidth: 1,
+                        backgroundColor : '#0ccbbb',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                        borderSkipped: true
+                    }]
+                };
+
+                myChart.data = data;
+                myChart1.data = data1;
+
+                myChart.update();
+                myChart1.update();
             });
-            const myChart1 = new Chart(ctx1, {
-                type: 'bar',
-                data : data1,
-                responsive: true,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                },
-            });
-        })
+        }
+
+        $('#mesF').on('change', function(){
+            obtenerEstadistica($(this).val(),$('#yearF').val());
+        });
+
+        $('#yearF').on('change', function(){
+            obtenerEstadistica($('#mesF').val(),$(this).val());
+        });
     </script>
 @endsection

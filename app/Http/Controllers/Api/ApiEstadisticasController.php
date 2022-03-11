@@ -32,4 +32,25 @@ class ApiEstadisticasController extends Controller
         ];
 
     }
+
+    public function informacionFiltro($mes, $year)
+    {
+        $tiposUnidad = TipoUnidad::all();
+        $labels = [];
+        $montos = [];
+        $operaciones = [];
+
+        foreach ($tiposUnidad as $item) {
+            $labels[] = $item->nombre;
+            $montos[] = $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum(DB::raw("transfer_movil + post + enzona + tienda_virtual"));
+            $operaciones[] = $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum('operaciones');
+        }
+
+        return [
+            'labels' => $labels,
+            'montos' => $montos,
+            'operaciones' => $operaciones
+        ];
+    }
+
 }
