@@ -7,7 +7,14 @@
         <div class="row">
             <div class="col-12">
                 <h3>Acumulado General</h3>
-                <canvas id="myChart" style="width: 100%;max-height: 300px;"></canvas>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <canvas id="myChart" style="width: 100%;max-height: 300px;"></canvas>
+                    </div>
+                    <div class="col-sm-6">
+                        <canvas id="myChart1" style="width: 100%;max-height: 300px;"></canvas>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <h4 class="text-center">Ventas Efectivo y crédito General: <strong class="text-success">${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
@@ -55,9 +62,40 @@
     <script>
         $.get('estadisticas_api/informacion_general').then( r => {
             const ctx = document.getElementById('myChart').getContext('2d');
+            const ctx1 = document.getElementById('myChart1').getContext('2d');
+
+            const data = {
+                labels: r.labels,
+                datasets: [{
+                    label: 'Monto acumulado',
+                    data: r.montos,
+                    borderWidth: 1
+                }]
+            };
+
+            const data1 = {
+                labels: r.labels,
+                datasets: [{
+                    label: 'Operaciones acumulado',
+                    data: r.montos,
+                    borderWidth: 1
+                }]
+            };
+
             const myChart = new Chart(ctx, {
                 type: 'bar',
-                data : r,
+                data : data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            const myChart1 = new Chart(ctx1, {
+                type: 'bar',
+                data : data1,
                 options: {
                     scales: {
                         y: {

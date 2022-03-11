@@ -15,54 +15,20 @@ class ApiEstadisticasController extends Controller
     {
 
         $tiposUnidad = TipoUnidad::all();
-
-        $operacionesMonto = [];
-
         $labels = [];
-
-        $opciones = [
-            (object)[
-                'label' => 'Operaciones',
-                'backgroundColor' => '#0078D7'
-            ],
-            (object)[
-                'label' => 'Monto',
-                'backgroundColor' => '#36893A'
-            ],
-        ];
+        $montos = [];
+        $operaciones = [];
 
         foreach ($tiposUnidad as $item) {
             $labels[] = $item->nombre;
+            $montos[] = $item->acumuladoCE()->sum(DB::raw("transfer_movil + post + enzona + tienda_virtual"));
+            $operaciones[] = $item->acumuladoCE()->sum('operaciones');
         }
-
-        foreach ($opciones as $opcion) {
-
-            $data = [];
-
-            foreach($tiposUnidad as $item){
-
-                if($opcion->label == 'Operaciones'){
-                    $data[] = Registro::where('tipo_unidad_id',$item->id)->sum('operaciones');
-                }
-
-                if ($opcion->label == 'Monto') {
-                    $data[] = Registro::where('tipo_unidad_id', $item->id)->sum(DB::raw("transfer_movil + post + enzona + tienda_virtual"));
-                }
-
-            }
-
-            $operacionesMonto[] = [
-                'label' => $opcion->label,
-                'data' => $data,
-                'backgroundColor' => $opcion->backgroundColor
-            ];
-
-        }
-
 
         return [
             'labels' => $labels,
-            'datasets' => $operacionesMonto
+            'montos' => $montos,
+            'operaciones' => $operaciones
         ];
 
     }
