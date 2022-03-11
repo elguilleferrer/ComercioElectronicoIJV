@@ -35,16 +35,28 @@
 
                 <div class="row my-4">
                     <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2"> Enzona : <strong class="text-success" id="totalEnzona">$0.00</strong></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2"> Transfermovil : <strong class="text-success" id="totalTransfermovil">$0.00</strong></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2"> Post : <strong class="text-success" id="totalPost">$0.00</strong></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2"> Tienda Virtual : <strong class="text-success" id="totalTiendaVirtual">$0.00</strong></h4>
+                    </div>
+                    <div class="col-sm-6">
                         <h4 class="text-center rounded-3 p-3 border border-success border-2"> Monto Total : <strong class="text-success" id="totalGrafico">$0.00</strong></h4>
                     </div>
                     <div class="col-sm-6">
                         <h4 class="text-center rounded-3 p-3 border border-success border-2">Total de Operaciones: <strong class="text-success" id="totalOperacionesGrafico">0</strong></h4>
                     </div>
                     <div class="col-sm-6">
-                        <h4 class="text-center rounded-3 p-3 border border-success border-2">Efectivo y Crédito: <strong class="text-success">${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
+                        <h4 class="text-center rounded-3 p-3 border border-primary border-2 bg-primary text-light">Efectivo y Crédito: <strong>${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
                     </div>
                     <div class="col-sm-6">
-                        <h4 class="text-center rounded-3 p-3 border border-success border-2">Acumulado: <strong class="text-success">${{number_format($acumuladoComercioElectronico,2)}}</strong></h4>
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2 bg-success text-light">Acumulado: <strong>${{number_format($acumuladoComercioElectronico,2)}}</strong></h4>
                     </div>
                 </div>
 
@@ -198,6 +210,11 @@
             $('#totalGrafico').html(currency(r.totalVentas));
             $('#totalOperacionesGrafico').html(r.totalOperaciones);
 
+            $('#totalEnzona').html(currency(r.totalesVirtuales.enzona));
+            $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil));
+            $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual));
+            $('#totalPost').html(currency(r.totalesVirtuales.posts));
+
             myChart.data = data;
             myChart1.data = data1;
 
@@ -271,6 +288,11 @@
 
                 $('#totalGrafico').html(currency(r.totalVentas));
                 $('#totalOperacionesGrafico').html(r.totalOperaciones);
+
+                $('#totalEnzona').html(currency(r.totalesVirtuales.enzona));
+                $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil));
+                $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual));
+                $('#totalPost').html(currency(r.totalesVirtuales.posts));
 
                 myChart.data = data;
                 myChart1.data = data1;

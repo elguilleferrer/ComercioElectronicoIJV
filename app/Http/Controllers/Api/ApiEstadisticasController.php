@@ -37,10 +37,19 @@ class ApiEstadisticasController extends Controller
     {
         $tiposUnidad = TipoUnidad::all();
         $labels = [];
+
         $enzona = [];
         $transfermovil = [];
         $posts = [];
         $tiendavirtual = [];
+
+        $totalesVirtuales = [
+            'enzona' => 0,
+            'transfermovil' => 0,
+            'tiendavirtual' => 0,
+            'posts' => 0
+        ];
+
         $operaciones = [];
 
         $totalVentas = 0;
@@ -55,9 +64,27 @@ class ApiEstadisticasController extends Controller
             $operaciones[] = $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum('operaciones');
             $totalVentas = $totalVentas + $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum(DB::raw("transfer_movil + enzona + tienda_virtual + post"));
             $totalOperaciones = $totalOperaciones + $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum('operaciones');
+
+            $totalesVirtuales = [
+                'enzona' => $totalesVirtuales['enzona'] + $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum("enzona"),
+                'transfermovil' => $totalesVirtuales['transfermovil'] + $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum("transfer_movil"),
+                'tiendavirtual' => $totalesVirtuales['tiendavirtual'] + $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum("tienda_virtual"),
+                'posts' => $totalesVirtuales['posts'] + $item->acumuladoCE()->where(['mes'=>$mes,'year'=>$year])->sum("post"),
+            ];
+
         }
 
-        return compact('enzona','transfermovil','posts','tiendavirtual','labels','operaciones','totalOperaciones','totalVentas');
+        return compact(
+            'enzona',
+            'transfermovil',
+            'posts',
+            'tiendavirtual',
+            'labels',
+            'operaciones',
+            'totalOperaciones',
+            'totalVentas',
+            'totalesVirtuales'
+        );
     }
 
 }
