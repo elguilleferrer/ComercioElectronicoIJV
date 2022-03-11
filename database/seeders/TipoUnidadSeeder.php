@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\TipoUnidad;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TipoUnidadSeeder extends Seeder
@@ -21,20 +20,32 @@ class TipoUnidadSeeder extends Seeder
                 'descripcion' => 'Bodegas'
             ],
             (object)[
+                'nombre' => 'Mercados Ideales',
+                'descripcion' => 'Mercados Ideales'
+            ],
+            (object)[
+                'nombre' => 'Punto de Venta Materiales de la Construccion',
+                'descripcion' => 'Punto de Venta Materiales de la Construccion'
+            ],
+            (object)[
+                'nombre' => 'Servicios tecnicos',
+                'descripcion' => 'Servicios tecnicos'
+            ],
+            (object)[
+                'nombre' => 'Sistema de alojamiento',
+                'descripcion' => 'Sistema de alojamiento'
+            ],
+            (object)[
+                'nombre' => 'Restaurantes',
+                'descripcion' => 'Restaurantes'
+            ],
+            (object)[
                 'nombre' => 'Cafeterias',
-                'descripcion' => 'cafeterias'
+                'descripcion' => 'Cafeterias'
             ],
             (object)[
-                'nombre' => 'Restaurants',
-                'descripcion' => 'Restaurants'
-            ],
-            (object)[
-                'nombre' => 'Mais',
-                'descripcion' => 'mais'
-            ],
-            (object)[
-                'nombre' => 'UEB-DEC-28',
-                'descripcion' => 'Ueb empresariales de base'
+                'nombre' => 'UEB Perfeccionadas',
+                'descripcion' => 'CafeteriasUEB Perfeccionadas'
             ],
         ];
 
