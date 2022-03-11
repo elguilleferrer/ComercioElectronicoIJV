@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>ComercioElectronicoIJV</title>
 
     <!-- Fonts -->
     <link href="{{asset('css/nunito.css')}}?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
