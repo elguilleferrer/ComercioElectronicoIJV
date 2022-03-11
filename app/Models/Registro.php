@@ -13,7 +13,7 @@ class Registro extends Model
 
     public function getTipoUnidad()
     {
-        return $this->hasOne(TipoUnidad::class, 'id');
+        return $this->hasOne(TipoUnidad::class,'id','tipo_unidad_id');
     }
 
     public function getMes()
