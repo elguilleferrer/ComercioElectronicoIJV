@@ -45,3 +45,7 @@ Route::prefix('admin')->group(function () {
 Route::prefix('estadisticas_api')->group(function () {
     Route::get('informacion_general',[ApiEstadisticasController::class,'informacionGeneral']);
 });
+
+Route::get('acerca',function(){
+    return view('acerca');
+})->name('acerca');

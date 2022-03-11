@@ -17,10 +17,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+{{--    custom--}}
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <i class="fa fa-chart-column"></i> {{ config('app.name', 'EstadisticasComercio') }}
@@ -38,10 +41,17 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('acerca') }}">
+                                <i class="fa fa-info-circle"></i> {{ __('Acerca') }}
+                            </a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">
+                                        <i class="fa fa-sign-in"></i> {{ __('Entrar') }}
+                                    </a>
                                 </li>
                             @endif
 
