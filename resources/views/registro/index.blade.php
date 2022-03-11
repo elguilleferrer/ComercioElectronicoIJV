@@ -52,7 +52,14 @@
                 },
                 name : 'tipo_unidad_id'
             },
-            { "data": "operaciones"},
+                {
+                    data:null,
+                    render : function (data, type, row) {
+                        return data.operaciones + data.operaciones_tranf + data.operaciones_tiendv;
+                    },
+                    orderable : false,
+                    searchable: false,
+                },
             {
                 data:null,
                 render : function (data, type, row) {

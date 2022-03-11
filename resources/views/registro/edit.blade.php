@@ -27,10 +27,6 @@
                             </select>
                         </div>
                         <div class="form-group mt-2">
-                            <label for="operaciones">Operaciones</label>
-                            <input type="number" class="form-control" id="operaciones" name="operaciones" requird value="{{$registro->operaciones}}">
-                        </div>
-                        <div class="form-group mt-2">
                             <label for="mes">Mes</label>
                             <select name="mes" id="mes" class="form-control" required>
                                 @foreach($meses as $mes)
@@ -46,24 +42,49 @@
                                 @endfor
                             </select>
                         </div>
+                        <div class="form-group mt-2">
+                            <label for="post">Post</label>
+                            <input type="text" class="form-control" id="post" name="post" required  value="{{$registro->post}}">
+                        </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group mt-2">
-                            <label for="post">Post</label>
-                            <input type="text" class="form-control" id="post" name="post" required value="{{$registro->post}}">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="enzona">Enzona</label>
+                                    <input type="text" class="form-control" id="enzona" name="enzona" required value="{{$registro->enzona}}">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="operaciones">Operaciones Enzona</label>
+                                    <input type="number" class="form-control" id="operaciones" name="operaciones" required value="{{$registro->operaciones}}">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group mt-2">
-                            <label for="enzona">Enzona</label>
-                            <input type="text" class="form-control" id="enzona" name="enzona" required value="{{$registro->enzona}}">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="transfer_movil">Transfermovil</label>
+                                    <input type="text" class="form-control" id="transfer_movil" name="transfer_movil" required value="{{$registro->transfer_movil}}">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="operaciones_tranf">Operaciones Transf</label>
+                                    <input type="number" class="form-control" id="operaciones_tranf" name="operaciones_tranf" required value="{{$registro->operaciones_tranf}}">
+                                </div>
+                            </div>
+
                         </div>
                         <div class="form-group mt-2">
-                            <label for="transfer_movil">Transfermovil</label>
-                            <input type="text" class="form-control" id="transfer_movil" name="transfer_movil" required value="{{$registro->transfer_movil}}">
-                        </div>
-                        <div class="form-group mt-2">
-                            <label for="tienda_virtual">Tienda Virtual</label>
-                            <input type="text" class="form-control" id="tienda_virtual" name="tienda_virtual" required value="{{$registro->tienda_virtual}}">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="tienda_virtual">Tienda Virtual</label>
+                                    <input type="text" class="form-control" id="tienda_virtual" name="tienda_virtual" required  value="{{$registro->tienda_virtual}}">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="operaciones_tiendv">Operaciones Tienda Virtual</label>
+                                    <input type="number" class="form-control" id="operaciones_tiendv" name="operaciones_tiendv" required value="{{$registro->operaciones_tiendv}}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
