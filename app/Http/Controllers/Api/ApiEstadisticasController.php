@@ -24,8 +24,8 @@ class ApiEstadisticasController extends Controller
             $operacionesMonto[] = [
                 'label' => $item->nombre,
                 'data' => [
-                    Registro::where('tipo_unidad_id',$item->id)->where('year',Carbon::now()->format('Y'))->sum('monto'),
-                    Registro::where('tipo_unidad_id',$item->id)->where('year',Carbon::now()->format('Y'))->sum('operaciones'),
+                    Registro::where('tipo_unidad_id',$item->id)->sum('monto'),
+                    Registro::where('tipo_unidad_id',$item->id)->sum('operaciones'),
                 ]
             ];
         }
