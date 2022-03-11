@@ -123,7 +123,7 @@
             },
         });
 
-        $.get('{{url('estadisticas_api/filtro/'.\Carbon\Carbon::now()->format('m').'/'.\Carbon\Carbon::now()->format('Y'))}}').then( r => {
+        $.get('{{url('estadisticas_api/filtro/'.\Carbon\Carbon::now()->format('n').'/'.\Carbon\Carbon::now()->format('Y'))}}').then( r => {
 
             data = {
                 labels: r.labels,
