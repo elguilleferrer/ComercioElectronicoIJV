@@ -14,7 +14,7 @@ class TipoUnidad extends Model
 
     public function acumuladoCE()
     {
-        return $this->belongsTo(Registro::class,'id');
+        return $this->belongsTo(Registro::class,'id','tipo_unidad_id');
     }
 
     public function ultimaActualizacion()
