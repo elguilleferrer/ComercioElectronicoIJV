@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <h4>Estadísticas</h4>
         <h6 class="text-black-50">Detalles de las estadisticas</h6>
         <div class="row mb-2">
@@ -32,13 +32,23 @@
                         <canvas id="myChart1" style="width: 100%;max-height: 600px;"></canvas>
                     </div>
                 </div>
+
+                <div class="row my-4">
+                    <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2"> Monto Total : <strong class="text-success" id="totalGrafico">$0.00</strong></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2">Total de Operaciones: <strong class="text-success" id="totalOperacionesGrafico">0</strong></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2">Efectivo y Crédito: <strong class="text-success">${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2">Acumulado: <strong class="text-success">${{number_format($acumuladoComercioElectronico,2)}}</strong></h4>
+                    </div>
+                </div>
+
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h4 class="text-center">Ventas Efectivo y crédito General: <strong class="text-success">${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
-                    </div>
-                    <div class="col-sm-6">
-                        <h4 class="text-center">Ventas total Acumulado Comercio Electrónico: <strong class="text-success">${{number_format($acumuladoComercioElectronico,2)}}</strong></h4>
-                    </div>
                     @if($acumuladoEfectivoCredito > 0)
                         <div class="col-12 text-center">
                             <h5>Esto representa un <strong class="text-success">%{{number_format(($acumuladoComercioElectronico*100)/$acumuladoEfectivoCredito,2)}}</strong></h5>
@@ -127,17 +137,48 @@
 
             data = {
                 labels: r.labels,
-                datasets: [{
-                    label: 'Monto acumulado',
-                    data: r.montos,
-                    borderWidth: 1,
-                    backgroundColor : '#0c88cb',
-                    barThickness: 15,
-                    maxBarThickness: 15,
-                    minBarLength: 15,
-                    borderRadius: 5,
-                    borderSkipped: true
-                }]
+                datasets: [
+                    {
+                        label: 'Enzona',
+                        data: r.enzona,
+                        borderWidth: 1,
+                        backgroundColor : '#0c88cb',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                    },
+                    {
+                        label: 'Transfermovil',
+                        data: r.transfermovil,
+                        borderWidth: 1,
+                        backgroundColor : '#1fc9d9',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                    },
+                    {
+                        label: 'Post',
+                        data: r.posts,
+                        borderWidth: 1,
+                        backgroundColor : '#664ecc',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                    },
+                    {
+                        label: 'Tienda Virtual',
+                        data: r.tiendavirtual,
+                        borderWidth: 1,
+                        backgroundColor : '#0ccbbb',
+                        barThickness: 15,
+                        maxBarThickness: 15,
+                        minBarLength: 15,
+                        borderRadius: 5,
+                    }
+                ]
             };
 
             data1 = {
@@ -151,9 +192,11 @@
                     maxBarThickness: 15,
                     minBarLength: 15,
                     borderRadius: 5,
-                    borderSkipped: true
                 }]
             };
+
+            $('#totalGrafico').html(currency(r.totalVentas));
+            $('#totalOperacionesGrafico').html(r.totalOperaciones);
 
             myChart.data = data;
             myChart1.data = data1;
@@ -168,17 +211,48 @@
 
                 data = {
                     labels: r.labels,
-                    datasets: [{
-                        label: 'Monto acumulado',
-                        data: r.montos,
-                        borderWidth: 1,
-                        backgroundColor : '#0c88cb',
-                        barThickness: 15,
-                        maxBarThickness: 15,
-                        minBarLength: 15,
-                        borderRadius: 5,
-                        borderSkipped: true
-                    }]
+                    datasets: [
+                        {
+                            label: 'Enzona',
+                            data: r.enzona,
+                            borderWidth: 1,
+                            backgroundColor : '#0c88cb',
+                            barThickness: 15,
+                            maxBarThickness: 15,
+                            minBarLength: 15,
+                            borderRadius: 5,
+                        },
+                        {
+                            label: 'Transfermovil',
+                            data: r.transfermovil,
+                            borderWidth: 1,
+                            backgroundColor : '#1fc9d9',
+                            barThickness: 15,
+                            maxBarThickness: 15,
+                            minBarLength: 15,
+                            borderRadius: 5,
+                        },
+                        {
+                            label: 'Post',
+                            data: r.posts,
+                            borderWidth: 1,
+                            backgroundColor : '#664ecc',
+                            barThickness: 15,
+                            maxBarThickness: 15,
+                            minBarLength: 15,
+                            borderRadius: 5,
+                        },
+                        {
+                            label: 'Tienda Virtual',
+                            data: r.tiendavirtual,
+                            borderWidth: 1,
+                            backgroundColor : '#0ccbbb',
+                            barThickness: 15,
+                            maxBarThickness: 15,
+                            minBarLength: 15,
+                            borderRadius: 5,
+                        }
+                    ]
                 };
 
                 data1 = {
@@ -192,9 +266,11 @@
                         maxBarThickness: 15,
                         minBarLength: 15,
                         borderRadius: 5,
-                        borderSkipped: true
                     }]
                 };
+
+                $('#totalGrafico').html(currency(r.totalVentas));
+                $('#totalOperacionesGrafico').html(r.totalOperaciones);
 
                 myChart.data = data;
                 myChart1.data = data1;
