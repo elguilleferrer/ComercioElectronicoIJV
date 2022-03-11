@@ -237,9 +237,9 @@
                 r.totalesOperaciones.enzona + r.totalesOperaciones.transfermovil + r.totalesOperaciones.tiendavirtual
             );
 
-            $('#totalEnzona').html(currency(r.totalesVirtuales.enzona) + '/ Op:'+ r.totalesOperaciones.enzona);
-            $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil) + '/ Op:'+ r.totalesOperaciones.transfermovil);
-            $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual) + '/ Op:'+ r.totalesOperaciones.tiendavirtual);
+            $('#totalEnzona').html(currency(r.totalesVirtuales.enzona) + ' | Op:'+ r.totalesOperaciones.enzona);
+            $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil) + ' | Op:'+ r.totalesOperaciones.transfermovil);
+            $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual) + ' | Op:'+ r.totalesOperaciones.tiendavirtual);
             $('#totalPost').html(currency(r.totalesVirtuales.posts));
 
             myChart.data = data;
@@ -342,9 +342,9 @@
                     r.totalesOperaciones.enzona + r.totalesOperaciones.transfermovil + r.totalesOperaciones.tiendavirtual
                 );
 
-                $('#totalEnzona').html(currency(r.totalesVirtuales.enzona) + '/ Op:'+ r.totalesOperaciones.enzona);
-                $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil) + '/ Op:'+ r.totalesOperaciones.transfermovil);
-                $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual) + '/ Op:'+ r.totalesOperaciones.tiendavirtual);
+                $('#totalEnzona').html(currency(r.totalesVirtuales.enzona) + ' | Op:'+ r.totalesOperaciones.enzona);
+                $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil) + ' | Op:'+ r.totalesOperaciones.transfermovil);
+                $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual) + ' | Op:'+ r.totalesOperaciones.tiendavirtual);
                 $('#totalPost').html(currency(r.totalesVirtuales.posts));
 
                 myChart.data = data;
