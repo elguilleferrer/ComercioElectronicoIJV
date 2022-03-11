@@ -198,7 +198,7 @@
                 datasets: [
                     {
                         label: 'Enzona',
-                        data: r.totalesOperaciones.enzona,
+                        data: r.enzonaOp,
                         borderWidth: 1,
                         backgroundColor : '#0ccbbb',
                         barThickness: 15,
@@ -208,7 +208,7 @@
                     },
                     {
                         label: 'Transfermovil',
-                        data: r.totalesOperaciones.transfermovil,
+                        data: r.transfermovilOp,
                         borderWidth: 1,
                         backgroundColor : '#0ccbbb',
                         barThickness: 15,
@@ -218,7 +218,7 @@
                     },
                     {
                         label: 'Tienda Virtual',
-                        data: r.totalesOperaciones.tiendavirtual,
+                        data: r.tiendavirtualOp,
                         borderWidth: 1,
                         backgroundColor : '#0ccbbb',
                         barThickness: 15,
@@ -304,7 +304,7 @@
                     datasets: [
                         {
                             label: 'Enzona',
-                            data: r.totalesOperaciones.enzona,
+                            data: r.enzonaOp,
                             borderWidth: 1,
                             backgroundColor : '#0ccbbb',
                             barThickness: 15,
@@ -314,7 +314,7 @@
                         },
                         {
                             label: 'Transfermovil',
-                            data: r.totalesOperaciones.transfermovil,
+                            data: r.transfermovilOp,
                             borderWidth: 1,
                             backgroundColor : '#0ccbbb',
                             barThickness: 15,
@@ -324,7 +324,7 @@
                         },
                         {
                             label: 'Tienda Virtual',
-                            data: r.totalesOperaciones.tiendavirtual,
+                            data: r.tiendavirtualOp,
                             borderWidth: 1,
                             backgroundColor : '#0ccbbb',
                             barThickness: 15,
