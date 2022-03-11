@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tipo_unidad_id');
             $table->integer('operaciones');
-            $table->double('venta_efectivo')->default(0);
-            $table->double('venta_credito')->default(0);
             $table->double('post')->default(0);
             $table->double('enzona')->default(0);
             $table->double('transfer_movil')->default(0);

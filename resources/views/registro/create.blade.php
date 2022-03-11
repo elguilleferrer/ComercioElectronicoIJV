@@ -45,17 +45,9 @@
                                 @endfor
                             </select>
                         </div>
-                        <div class="form-group mt-2">
-                            <label for="venta_efectivo">Venta Efectivo</label>
-                            <input type="text" class="form-control" id="venta_efectivo" name="venta_efectivo" required value="0">
-                        </div>
                     </div>
 
                     <div class="col-sm-6">
-                        <div class="form-group mt-2">
-                            <label for="venta_credito">Venta Crédito</label>
-                            <input type="text" class="form-control" id="venta_credito" name="venta_credito" required value="0">
-                        </div>
                         <div class="form-group mt-2">
                             <label for="post">Post</label>
                             <input type="text" class="form-control" id="post" name="post" required value="0">

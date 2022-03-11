@@ -5,6 +5,7 @@ use \App\Http\Controllers\EstadisticaController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\TipoUnidadController;
 use App\Http\Controllers\Api\ApiEstadisticasController;
+use \App\Http\Controllers\RegistroEfectivoCreditoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,13 @@ Route::prefix('estadisticas')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
+
     Route::resource('registro',RegistroController::class);
     Route::get('get_registros',[RegistroController::class,'getRegistros']);
-    Route::post('add_registro',[RegistroController::class,'store']);
+
+    Route::resource('efectivo_credito',RegistroEfectivoCreditoController::class);
+    Route::get('get_registros_efectivo_credito',[RegistroEfectivoCreditoController::class,'getRegistros']);
+
 });
 
 Route::prefix('estadisticas_api')->group(function () {

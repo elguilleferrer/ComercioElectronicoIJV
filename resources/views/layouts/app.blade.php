@@ -62,6 +62,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('efectivo_credito.index')}}">
+                                        <i class="fa fa-money-bill"></i> Efectivo-Credito
+                                    </a>
                                     <a class="dropdown-item" href="{{route('registro.index')}}">
                                         <i class="fa fa-usd"></i> Registros
                                     </a>

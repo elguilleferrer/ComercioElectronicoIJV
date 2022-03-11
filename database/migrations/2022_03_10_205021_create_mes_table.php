@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('unidads', function (Blueprint $table) {
+        Schema::create('mes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tipo_unidad_id');
-            $table->integer('operaciones');
-            $table->double('monto')->default(0);
-            $table->integer('year');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unidads');
+        Schema::dropIfExists('mes');
     }
 };

@@ -21,8 +21,8 @@
         }
     </style>
 </head>
-<body class="antialiased">
-<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+<body class="antialiased bg-light">
+<div class="relative flex items-top justify-center min-h-screen bg-light dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
@@ -38,7 +38,7 @@
     @endif
 
     <div class="container">
-        <h1 class="text-center">
+        <h1 class="text-center text-black-50">
             <img src="{{asset('images/logo.svg')}}" alt="ComercioIJV" style="max-width:250px;">
             <br>
             Comercio Electronico IJV
@@ -46,11 +46,11 @@
         <p class="black-50 text-center sm:rounded-lg p-3 text-success" style="font-size: 13pt;">
             Sistema estadístico del comercio electrónico del comercio en la Isla de la Juventud.
         <div class="mt-4 text-center">
-        <div class="text-center">
-            <h4>Departamento de Informática</h4>
-            <h4 class="text-black-50">{{\Carbon\Carbon::now()->format('Y')}}</h4>
-        </div>
-            <a href="{{url('/estadisticas/generales')}}" class="btn btn-primary">Empezar</a>
+            <div class="text-center">
+                <h4>Departamento de Informática</h4>
+                <h4 class="text-black-50">{{\Carbon\Carbon::now()->format('Y')}}</h4>
+            </div>
+            <a href="{{url('/estadisticas')}}" class="btn btn-primary">Iniciar</a>
         </div>
         </p>
     </div>
