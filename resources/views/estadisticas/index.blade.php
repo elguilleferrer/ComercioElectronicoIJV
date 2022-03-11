@@ -208,16 +208,11 @@
             };
 
             $('#totalGrafico').html(currency(
-                r.totalesVirtuales.enzona +
-                r.totalesVirtuales.transfermovil +
-                r.totalesVirtuales.tiendavirtual +
-                r.totalesVirtuales.posts
+                r.totalesVirtuales.enzona + r.totalesVirtuales.transfermovil + r.totalesVirtuales.tiendavirtual + r.totalesVirtuales.posts
             ));
 
             $('#totalOperacionesGrafico').html(
-                r.totalesOperaciones.enzona +
-                r.totalesOperaciones.transfermovil +
-                r.totalesOperaciones.tiendavirtual
+                r.totalesOperaciones.enzona + r.totalesOperaciones.transfermovil + r.totalesOperaciones.tiendavirtual
             );
 
             $('#totalEnzona').html(currency(r.totalesVirtuales.enzona) + '/ Op:'+ $totalesOperaciones.enzona);
@@ -295,13 +290,17 @@
                         borderRadius: 5,
                     }]
                 };
+                $('#totalGrafico').html(currency(
+                    r.totalesVirtuales.enzona + r.totalesVirtuales.transfermovil + r.totalesVirtuales.tiendavirtual + r.totalesVirtuales.posts
+                ));
 
-                $('#totalGrafico').html(currency(r.totalVentas));
-                $('#totalOperacionesGrafico').html(r.totalOperaciones);
+                $('#totalOperacionesGrafico').html(
+                    r.totalesOperaciones.enzona + r.totalesOperaciones.transfermovil + r.totalesOperaciones.tiendavirtual
+                );
 
-                $('#totalEnzona').html(currency(r.totalesVirtuales.enzona));
-                $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil));
-                $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual));
+                $('#totalEnzona').html(currency(r.totalesVirtuales.enzona) + '/ Op:'+ $totalesOperaciones.enzona);
+                $('#totalTransfermovil').html(currency(r.totalesVirtuales.transfermovil) + '/ Op:'+ $totalesOperaciones.transfermovil);
+                $('#totalTiendaVirtual').html(currency(r.totalesVirtuales.tiendavirtual) + '/ Op:'+ $totalesOperaciones.tiendavirtual);
                 $('#totalPost').html(currency(r.totalesVirtuales.posts));
 
                 myChart.data = data;
