@@ -5,9 +5,10 @@
         <h4>Estadísticas</h4>
         <h6 class="text-black-50">Detalles de las estadisticas</h6>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-12">
                 <canvas id="myChart" style="width: 100%;"></canvas>
             </div>
+            <div class="col-sm-6"></div>
             <div class="col-sm-6"></div>
         </div>
     </div>

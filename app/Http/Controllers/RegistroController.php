@@ -35,7 +35,57 @@ class RegistroController extends Controller
     public function create()
     {
         $tiposUnidad = TipoUnidad::all();
-        return view('registro.create', compact('tiposUnidad'));
+        $meses = [
+            (object)[
+                'id' => 1,
+                'label' => 'Enero'
+            ],
+             (object)[
+                'id' => 2,
+                'label' => 'Febrero'
+            ],
+             (object)[
+                'id' => 3,
+                'label' => 'Marzo'
+            ],
+             (object)[
+                'id' => 4,
+                'label' => 'Abril'
+            ],
+             (object)[
+                'id' => 5,
+                'label' => 'Mayo'
+            ],
+             (object)[
+                'id' => 6,
+                'label' => 'Junio'
+            ],
+             (object)[
+                'id' => 7,
+                'label' => 'Julio'
+            ],
+             (object)[
+                'id' => 8,
+                'label' => 'Agosto'
+            ],
+             (object)[
+                'id' => 9,
+                'label' => 'Septiembre'
+            ],
+             (object)[
+                'id' => 10,
+                'label' => 'Octubre'
+            ],
+             (object)[
+                'id' => 11,
+                'label' => 'Nobiembre'
+            ],
+             (object)[
+                'id' => 12,
+                'label' => 'Diciembre'
+            ],
+        ];
+        return view('registro.create', compact('tiposUnidad','meses'));
     }
 
     /**

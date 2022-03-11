@@ -19,16 +19,35 @@ class ApiEstadisticasController extends Controller
 
         $labels = [];
 
+        $opciones = ['Operaciones','Monto'];
+
         foreach ($tiposUnidad as $item) {
             $labels[] = $item->nombre;
-            $operacionesMonto[] = [
-                'label' => $item->nombre,
-                'data' => [
-                    Registro::where('tipo_unidad_id',$item->id)->sum('monto'),
-                    Registro::where('tipo_unidad_id',$item->id)->sum('operaciones'),
-                ]
-            ];
         }
+
+        foreach ($opciones as $opcion) {
+
+            $data = [];
+
+            foreach($tiposUnidad as $item){
+
+                if($opcion == 'Operaciones'){
+                    $data[] = Registro::where('tipo_unidad_id',$item->id)->sum('operaciones');
+                }
+
+                if ($opcion == 'Monto') {
+                    $data[] = Registro::where('tipo_unidad_id', $item->id)->sum('monto');
+                }
+
+            }
+
+            $operacionesMonto[] = [
+                'label' => $opcion,
+                'data' => $data,
+            ];
+
+        }
+
 
         return [
             'labels' => $labels,
