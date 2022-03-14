@@ -52,6 +52,30 @@
                     <div class="col-sm-6">
                         <h4 class="text-center rounded-3 p-3 border border-success border-2">Total de Operaciones: <strong class="text-success" id="totalOperacionesGrafico">0</strong></h4>
                     </div>
+
+                    <h1 class="my-5 text-center">
+                        <i class="fa fa-calendar"></i> Por meses
+                    </h3>
+
+                    <div class="col-12 my-3">
+                        <div class="row">
+                            @foreach ($meses as $mes)
+                            @if($mes->acumulado > 0)
+                            <div class="col-sm-3">
+                                <div class="bg-success text-light text-center bg-success m-3 p-3 rounded">
+                                    <h2>
+                                        <i class="fa fa-calendar"></i> {{$mes->label}}
+                                    </h2>
+                                    <p class="text-light" style="font-weight: bold;">
+                                        ${{number_format($mes->acumulado, 2)}}
+                                    </p>
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
+                        </div>
+                    </div>
+
                     <div class="col-sm-6">
                         <h4 class="text-center rounded-3 p-3 border border-primary border-2 bg-primary text-light">Efectivo y Crédito {{Carbon\Carbon::now()->format('Y')}}: <strong>${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
                     </div>
