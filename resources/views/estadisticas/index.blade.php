@@ -91,7 +91,7 @@
                         </div>
                     @endif
                     <div class="col-12">
-                        <h3 class="text-center text-decoration-underline">Acumulados por tipo de unidad</h3>
+                        <h3 class="text-center text-decoration-underline">Acumulados por tipo de unidad <strong>{{Carbon\Carbon::now()->format('Y')}}</strong> </h3>
                         <div class="row">
                             @foreach($tipoUnidades as $tipoUnidad)
                                 <div class="col-sm-4">
@@ -104,13 +104,13 @@
                                                 <div class="col-sm-8">
                                                     <div class="text-black-50 fw-bold text-decoration-underline text-end"><small>Monto</small></div>
                                                     <h4 class="text-success" style="text-align: right;">
-                                                        <i class="fa fa-money-bill-alt"></i> ${{number_format($tipoUnidad->acumuladoCE()->sum(DB::raw("transfer_movil + post + enzona + tienda_virtual")),2)}}
+                                                        <i class="fa fa-money-bill-alt"></i> ${{number_format($tipoUnidad->acumuladoCEAA()->sum(DB::raw("transfer_movil + post + enzona + tienda_virtual")),2)}}
                                                     </h4>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="text-black-50 fw-bold text-decoration-underline"><small>Operaciones</small></div>
                                                     <h4 class="text-primary">
-                                                        <i class="fa fa-mobile"></i> {{$tipoUnidad->acumuladoCE()->sum("operaciones")}}
+                                                        <i class="fa fa-mobile"></i> {{$tipoUnidad->acumuladoCEAA()->sum("operaciones")}}
                                                     </h4>
                                                 </div>
                                             </div>

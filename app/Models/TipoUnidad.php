@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use DB;
 
 class TipoUnidad extends Model
@@ -15,6 +16,11 @@ class TipoUnidad extends Model
     public function acumuladoCE()
     {
         return $this->belongsTo(Registro::class,'id','tipo_unidad_id');
+    }
+
+    public function acumuladoCEAA()
+    {
+        return $this->belongsTo(Registro::class,'id','tipo_unidad_id')->where('year',Carbon::now()->format('Y'));
     }
 
     public function ultimaActualizacion()
