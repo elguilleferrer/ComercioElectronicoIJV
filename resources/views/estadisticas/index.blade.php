@@ -54,7 +54,7 @@
                     </div>
 
                     <h1 class="my-5 text-center">
-                        <i class="fa fa-calendar"></i> Por meses
+                        <i class="fa fa-calendar"></i> Acumulado por meses
                     </h3>
 
                     <div class="col-12 my-3">
