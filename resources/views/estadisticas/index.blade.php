@@ -115,11 +115,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-footer p-0">
+                                        {{-- <div class="card-footer p-0">
                                             <a href="#" class="btn btn-light d-block">
                                                 <i class="fa fa-link"></i> Ver detalles
                                             </a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             @endforeach
