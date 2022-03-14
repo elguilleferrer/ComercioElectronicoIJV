@@ -12,8 +12,8 @@ use DB;
 class EstadisticaController extends Controller
 {
     public function index(){
-        $acumuladoEfectivoCredito = RegistroEfectivoCredito::sum(DB::raw('venta_efectivo + venta_credito'));
-        $acumuladoComercioElectronico = Registro::sum(DB::raw("transfer_movil + post + enzona + tienda_virtual"));
+        $acumuladoEfectivoCredito = RegistroEfectivoCredito::where('year',Carbon::now('Y'))->sum(DB::raw('venta_efectivo + venta_credito'));
+        $acumuladoComercioElectronico = Registro::where('year',Carbon::now('Y'))->sum(DB::raw("transfer_movil + post + enzona + tienda_virtual"));
         $tipoUnidades = TipoUnidad::all();
         $meses = [
             (object) [

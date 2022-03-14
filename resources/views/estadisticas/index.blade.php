@@ -53,10 +53,10 @@
                         <h4 class="text-center rounded-3 p-3 border border-success border-2">Total de Operaciones: <strong class="text-success" id="totalOperacionesGrafico">0</strong></h4>
                     </div>
                     <div class="col-sm-6">
-                        <h4 class="text-center rounded-3 p-3 border border-primary border-2 bg-primary text-light">Efectivo y Crédito: <strong>${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
+                        <h4 class="text-center rounded-3 p-3 border border-primary border-2 bg-primary text-light">Efectivo y Crédito {{Carbon\Carbon::now()->format('Y')}}: <strong>${{number_format($acumuladoEfectivoCredito,2)}}</strong></h4>
                     </div>
                     <div class="col-sm-6">
-                        <h4 class="text-center rounded-3 p-3 border border-success border-2 bg-success text-light">Acumulado: <strong>${{number_format($acumuladoComercioElectronico,2)}}</strong></h4>
+                        <h4 class="text-center rounded-3 p-3 border border-success border-2 bg-success text-light">Acumulado {{Carbon\Carbon::now()->format('Y')}}: <strong>${{number_format($acumuladoComercioElectronico,2)}}</strong></h4>
                     </div>
                 </div>
 
