@@ -44,7 +44,7 @@
             Comercio Electronico IJV
         </h1>
         <p class="black-50 text-center sm:rounded-lg p-3 text-success" style="font-size: 13pt;">
-            Sistema estadístico del comercio electrónico del comercio en la Isla de la Juventud.
+            Sistema estadístico del comercio electrónico <br> en La Empresa Municipal de Comercio de la Isla de la Juventud.
         <div class="mt-4 text-center">
             <div class="text-center">
                 <h4>
