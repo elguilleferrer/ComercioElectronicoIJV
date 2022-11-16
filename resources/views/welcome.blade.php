@@ -47,7 +47,9 @@
             Sistema estadístico del comercio electrónico del comercio en la Isla de la Juventud.
         <div class="mt-4 text-center">
             <div class="text-center">
-                <h4>Departamento de Informática</h4>
+                <h4>
+                    Dirección de Desarrollo, departamento de Informática.
+                </h4>
                 <h4 class="text-black-50">{{\Carbon\Carbon::now()->format('Y')}}</h4>
             </div>
             <a href="{{url('/estadisticas')}}" class="btn btn-primary">Iniciar</a>
