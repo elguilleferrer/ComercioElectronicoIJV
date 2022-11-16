@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\EstadisticaController;
+use App\Http\Controllers\EstadisticaController;
 use App\Http\Controllers\RegistroController;
-use App\Http\Controllers\TipoUnidadController;
 use App\Http\Controllers\Api\ApiEstadisticasController;
-use \App\Http\Controllers\RegistroEfectivoCreditoController;
-
+use App\Http\Controllers\RegistroEfectivoCreditoController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +45,8 @@ Route::prefix('estadisticas_api')->group(function () {
     Route::get('informacion_general',[ApiEstadisticasController::class,'informacionGeneral']);
     Route::get('filtro/{mes}/{year}',[ApiEstadisticasController::class,'informacionFiltro']);
 });
+
+Route::resource('user', UserController::class);
 
 Route::get('acerca',function(){
     return view('acerca');
