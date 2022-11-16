@@ -9,11 +9,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+
     <!-- Fonts -->
     <link href="{{asset('css/nunito.css')}}?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 {{--    font-awesome--}}
-    <link href="{{asset('vendor/fontawesome-free-6.0.0-web/css/all.css')}}"></link>
+    <link href="{{asset('vendor/fontawesome-free-6.0.0-web/css/all.css')}}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

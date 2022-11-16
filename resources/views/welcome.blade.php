@@ -6,6 +6,8 @@
 
     <title>ComercioElectronicoIJV</title>
 
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+
     <!-- Fonts -->
     <link href="{{asset('css/nunito.css')}}?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
